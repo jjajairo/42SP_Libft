@@ -6,13 +6,13 @@
 /*   By: jcaetano <jcaetano@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/25 17:23:19 by jcaetano          #+#    #+#             */
-/*   Updated: 2021/08/25 17:59:47 by jcaetano         ###   ########.fr       */
+/*   Updated: 2021/09/01 09:20:17 by jcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *src, size_t length)
+void	ft_bzero(void *src, size_t size)
 {
-	ft_memset(src, '\0', length);
+	ft_memset(src, '\0', size);
 }
