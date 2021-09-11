@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcaetano <jcaetano@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/03 19:21:30 by jcaetano          #+#    #+#             */
-/*   Updated: 2021/09/08 15:43:55 by jcaetano         ###   ########.fr       */
+/*   Created: 2021/09/08 16:30:42 by jcaetano          #+#    #+#             */
+/*   Updated: 2021/09/08 16:52:57 by jcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	size_t		i;
+	size_t	total_size;
+	size_t	*slot;
 
-	i = 0;
-	if (n == 0)
-		return (0);
-	while ((s1[i] != 0 || s2[i] != 0) && (s1[i] == s2[i]) && (i < n - 1))
-		i++;
-	return (((unsigned char)s1[i]) - ((unsigned char)s2[i]));
+	total_size = nmemb * size;
+	slot = (size_t *)malloc(total_size);
+	if (!slot || (total_size > INT_MAX))
+		return (NULL);
+	ft_memset(slot, 0, total_size);
+	return ((void *)slot);
 }

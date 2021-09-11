@@ -1,4 +1,2 @@
-.study
-/demos
-*.out
-/.vscode
+libftTester
+*.a

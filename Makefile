@@ -10,21 +10,42 @@ SRCS	=	ft_bzero.c \
             ft_memmove.c \
             ft_memset.c \
             ft_strlcpy.c \
-            ft_strlen.c
+            ft_strlcat.c \
+            ft_strlen.c \
+            ft_toupper.c \
+            ft_tolower.c \
+            ft_strchr.c \
+            ft_strrchr.c \
+            ft_strncmp.c \
+            ft_memchr.c \
+            ft_memcmp.c \
+            ft_strnstr.c \
+            ft_atoi.c \
+            ft_calloc.c \
+            ft_strdup.c \
+            ft_substr.c \
+            ft_strjoin.c \
+            ft_strtrim.c \
+            ft_split.c \
+            ft_itoa.c \
+            ft_strmapi.c \
+            ft_striteri.c \
+            ft_putchar_fd.c \
+            ft_putstr_fd.c \
+            ft_putendl_fd.c \
+            ft_putnbr_fd.c \
 
 OBJ = $(SRCS:.c=.o)
 
-CC = clang -Wall -Wextra -Werror -g
+CC = clang -Wall -Wextra -Werror
 
 .c.o:
-	@echo "Compilando $< >> $@..."
 	@$(CC) -c $< -o $@
 
 all: $(NAME) clean
 
 $(NAME): $(OBJ)
-	@echo " "
-	@echo "Construindo a biblioteca $(NAME) ..."
+    # @echo "Building the lib. $(NAME) ..."
     # -r indica que queremos adicionar um arquivo '.o' para a biblioteca '.a'
     # -c indica que, caso o arquivo '.a' não exista, deverá ser criado.
     # -s solicita ao comando ar que seja criado um índice no arquivo final
@@ -32,17 +53,16 @@ $(NAME): $(OBJ)
 	@echo "$(NAME) criada com sucesso..."
 
 clean:
-	@echo "Removendo arquivos .o ..."
-	@rm -f $(OBJ)
+    # @echo "Removendo arquivos .o ..."
+	@rm -f *.o
 
 fclean: clean
-	@echo "Removendo a biblioteca $(NAME)"
+    # @echo "Removendo a biblioteca $(NAME)"
 	@rm -f $(NAME)
 
 re: fclean all
 
-teste:
-	$(CC) ./test/main.c -L. -lft -o ./test/main
-
-
-.PHONY: all clean fclean teste
+test: all
+	$(CC) -g ./test/main.c -L. -lft -o ./test/main
+# -fsanitize=address
+.PHONY: all clean fclean test

@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcaetano <jcaetano@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/03 19:21:30 by jcaetano          #+#    #+#             */
-/*   Updated: 2021/09/08 15:43:55 by jcaetano         ###   ########.fr       */
+/*   Created: 2021/09/09 12:11:41 by jcaetano          #+#    #+#             */
+/*   Updated: 2021/09/09 15:46:13 by jcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t		i;
+	char	*substr;
+	size_t	s_len;
 
-	i = 0;
-	if (n == 0)
-		return (0);
-	while ((s1[i] != 0 || s2[i] != 0) && (s1[i] == s2[i]) && (i < n - 1))
-		i++;
-	return (((unsigned char)s1[i]) - ((unsigned char)s2[i]));
+	if (!s)
+		return (NULL);
+	s_len = ft_strlen(s);
+	if (s_len < start)
+		return (ft_strdup(""));
+	s_len -= start;
+	if (s_len < len || len > INT_MAX)
+		len = s_len;
+	substr = (char *)malloc(sizeof(char) * len + 1);
+	if (!substr)
+		return (NULL);
+	ft_strlcpy(substr, &s[start], len + 1);
+	return (substr);
 }
