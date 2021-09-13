@@ -6,7 +6,7 @@
 /*   By: jcaetano <jcaetano@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 15:14:42 by jcaetano          #+#    #+#             */
-/*   Updated: 2021/09/10 16:56:26 by jcaetano         ###   ########.fr       */
+/*   Updated: 2021/09/13 13:30:48 by jcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,19 @@ char	*ft_itoa(int n)
 {
 	char			*s;
 	size_t			size;
+	unsigned int	negative;
 
 	size = ft_nb_count(n);
+	negative = 0;
 	s = (char *)malloc(sizeof(char) * size + 1);
 	if (!s)
 		return (NULL);
-	return (ft_convert_nbr(s, size, (unsigned int) n, (n < 0)));
+	if (n < 0)
+	{
+		negative = 1;
+		n = -n;
+	}
+	return (ft_convert_nbr(s, size, (unsigned int)n, negative));
 }
 
 static size_t	ft_nb_count(int nb)
