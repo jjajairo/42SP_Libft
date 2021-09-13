@@ -6,7 +6,7 @@
 /*   By: jcaetano <jcaetano@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/26 08:06:35 by jcaetano          #+#    #+#             */
-/*   Updated: 2021/09/13 13:42:12 by jcaetano         ###   ########.fr       */
+/*   Updated: 2021/09/13 13:44:17 by jcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,10 @@ void	*ft_memmove(void *dest, const void *src, size_t size)
 	s = (char *)src;
 	d = (char *)dest;
 	if (s > d)
-		if (ft_memcpy(d, s, size))
-			return (dest);
+	{
+		ft_memcpy(d, s, size);
+		return (dest);
+	}
 	while (size--)
 		d[size] = s[size];
 	return (dest);
