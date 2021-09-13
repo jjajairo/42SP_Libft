@@ -1,2 +1,12 @@
-libftTester
-*.a
+# Ignore everythin
+*
+
+# Except this files
+
+!.gitignore
+!.git
+!*.c
+!*.h
+!Makefile
+!README.md
+!demo

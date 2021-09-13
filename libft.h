@@ -6,7 +6,7 @@
 /*   By: jcaetano <jcaetano@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/26 11:16:46 by jcaetano          #+#    #+#             */
-/*   Updated: 2021/09/11 00:30:13 by jcaetano         ###   ########.fr       */
+/*   Updated: 2021/09/13 09:28:46 by jcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -173,14 +173,14 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
 
 /**
  * @brief Scans the initial n bytes of the memory area
- * pointed to by ptr for the first instance of c
+ * pointed to by str for the first instance of c
  *
- * @param ptr Pointer to the initial memory area
+ * @param str Pointer to the initial memory area
  * @param c Character to be searched
  * @param n Buffer size in bytes
  * @return A pointer str to the matching byte or NULL if it does not occur
  */
-void	*ft_memchr(const void *ptr, int c, size_t n);
+void	*ft_memchr(const void *str, int c, size_t n);
 
 /**
  * @brief Compares the first n bytes (each interpreted as unsigned char) of the

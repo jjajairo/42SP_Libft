@@ -6,30 +6,45 @@
 /*   By: jcaetano <jcaetano@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/08 15:44:50 by jcaetano          #+#    #+#             */
-/*   Updated: 2021/09/08 16:28:41 by jcaetano         ###   ########.fr       */
+/*   Updated: 2021/09/13 10:35:00 by jcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+static int	ft_isspace(char c);
+
 int	ft_atoi(const char *nptr)
 {
-	int	res;
-	int	signal;
-	int	i;
+	size_t	res;
+	int		signal;
 
-	res = 0;
-	i = 0;
 	signal = 1;
-	while (nptr[i] <= 32)
-		i++;
-	if (nptr[i] == 45 || nptr[i] == 43)
+	res = 0;
+	while (ft_isspace(*nptr))
+		nptr++;
+	if (*nptr == 45 || *nptr == 43)
 	{
-		if (nptr[i] == 45)
+		if (*nptr == '-')
 			signal *= -1;
-		i++;
+		nptr++;
 	}
-	while (ft_isdigit(nptr[i]))
-		res = (res * 10) + (nptr[i++] - 48);
+	else if (*nptr == 43)
+		nptr++;
+	while (ft_isdigit(*nptr))
+		res = (res * 10) + (*nptr++ - 48);
 	return (res * signal);
+}
+
+static int	ft_isspace(char c)
+{
+	if (c == '\t'
+		|| c == '\v'
+		|| c == '\r'
+		|| c == '\n'
+		|| c == '\f'
+		|| c == '\e'
+		|| c == ' ')
+		return (1);
+	return (0);
 }

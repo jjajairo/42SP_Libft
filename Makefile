@@ -62,7 +62,7 @@ fclean: clean
 
 re: fclean all
 
-test: all
-	$(CC) -g ./test/main.c -L. -lft -o ./test/main
+demo: all
+	$(CC) -g ./demo/main.c -L. -lft -o ./demo/main
 # -fsanitize=address
-.PHONY: all clean fclean test
+.PHONY: all clean fclean demo
