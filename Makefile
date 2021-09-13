@@ -42,7 +42,7 @@ CC = clang -Wall -Wextra -Werror
 .c.o:
 	@$(CC) -c $< -o $@
 
-all: $(NAME) clean
+all: $(NAME)
 
 $(NAME): $(OBJ)
     # @echo "Building the lib. $(NAME) ..."
