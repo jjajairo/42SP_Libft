@@ -5,15 +5,18 @@
 
 int	main(void)
 {
-	const char *nptr1 = "9223372036854775807";
-	const char *nptr2 = "9223372036854775807";
+	char	n[40] = "99999999999999999999999999";
+	// char	n2[40] = "-99999999999999999999999999";
+	int		i1 = atoi(n);
+	int		i2 = ft_atoi(n);
 
-	printf("ft_atoi: %d\n", ft_atoi(nptr1));
-	printf("--------------------------------\n");
-	printf("atoi: %d\n\n", atoi(nptr2));
-	if (ft_atoi(nptr1) == atoi(nptr2))
-		printf("OK\n");
-	else
-		printf("Error\n");
+	printf("atoi: %d\n", i1);
+	printf("ft_atoi: %d\n", i2);
+	if (i1 == i2)
+	{
+		printf("TEST_SUCCESS\n");
+		return (1);
+	}
+	printf("TEST_KO\n");
 	return (0);
 }

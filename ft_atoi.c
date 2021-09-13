@@ -6,7 +6,7 @@
 /*   By: jcaetano <jcaetano@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/08 15:44:50 by jcaetano          #+#    #+#             */
-/*   Updated: 2021/09/13 10:48:40 by jcaetano         ###   ########.fr       */
+/*   Updated: 2021/09/13 14:01:03 by jcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ static int	ft_isspace(char c);
 
 int	ft_atoi(const char *nptr)
 {
-	size_t	res;
-	int		signal;
+	int	res;
+	int	signal;
 
 	signal = 1;
 	res = 0;
