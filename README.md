@@ -3,6 +3,10 @@
 
 Libft is a project for Standard C library that override a set of their functions and must behave the same as the originals.
 
+## What do I learn?
+
+The base of C, with pointers, memory allocation and basic data structure operations.
+
 ### Part 1 - Libc functions
 
 Re-code a set of the `libc` functions, as defined in their `man`. The functions will need to present the same prototype and behaviors as the originals

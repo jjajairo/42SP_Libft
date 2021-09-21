@@ -1,3 +1,10 @@
-.vscode
-demo
-/src/*.o
+*
+src/*.o
+src/*.a
+
+!src
+!README
+!.git
+!src/*.h
+!src/*.c
+!src/Makefile

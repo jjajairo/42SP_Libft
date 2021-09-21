@@ -6,7 +6,7 @@
 /*   By: jcaetano <jcaetano@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/26 11:16:46 by jcaetano          #+#    #+#             */
-/*   Updated: 2021/09/11 08:08:01 by jcaetano         ###   ########.fr       */
+/*   Updated: 2021/09/21 20:29:58 by jcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,12 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}	t_list;
 
 # define INT_MAX 2147483647
 # define INT_MIN -2147483648
@@ -352,4 +358,85 @@ void	ft_putendl_fd(char *s, int fd);
  * @param fd The file descriptor on which to write.
  */
 void	ft_putnbr_fd(int n, int fd);
+
+/**
+ * @brief Allocates and returns a new element of t_list with the value of
+ * CONTENT. Variable NEXT is initialized to NULL.
+ *
+ * @param content The string to be created to the new t_list.
+ * @return The address of the new t_list element.
+ */
+t_list	*ft_lstnew(void *content);
+
+/**
+ * @brief Add a new element to the start of the linked list appointed by lst.
+ *
+ * @param lst List of address of t_lists.
+ * @param new Element to be add to the start of the LST.
+ */
+void	ft_lstadd_front(t_list **lst, t_list *new);
+
+/**
+ * @brief Find the length of the linked list appointed by LST
+ *
+ * @param lst Linked list to be count.
+ * @return Length of LST
+ */
+int		ft_lstsize(t_list *lst);
+
+/**
+ * @brief Find the last element of the linked list.
+ *
+ * @param lst Address of a linked list.
+ * @return The address of the linked list.
+ */
+t_list	*ft_lstlast(t_list *lst);
+
+/**
+ * @brief Add a new element to the linked list in the end.
+ *
+ * @param lst Appointed a linked list.
+ * @param new The new element to be added.
+ */
+void	ft_lstadd_back(t_list **lst, t_list *new);
+
+/**
+ * @brief Aplies the function DEL to the LST content and them free the LST.
+ *
+ * @param lst Linked element to be deleted and free.
+ * @param del Function to delete the element.
+ */
+void	ft_lstdelone(t_list *lst, void (*del)(void *));
+
+/**
+ * @brief Applies the del function to the all elements of the linked list and
+ * the free all
+ *
+ * @param lst list be clear and deleted.
+ * @param del Functions to delete the elements.
+ */
+void	ft_lstclear(t_list **lst, void (*del)(void *));
+
+/**
+ * @brief Iterates the list ’lst’ and applies the function ’f’ to the content
+ * of each element.
+ *
+ * @param lst The address of a pointer to an element.
+ * @param f The address of the function used to iterate on the list.
+ */
+void	ft_lstiter(t_list *lst, void (*f)(void *));
+
+/**
+ * @brief Iterates the list ’lst’ and applies the function ’f’ to the content
+ * of each element. Creates a new list resulting of the successive applications
+ * of the function ’f’.
+ *
+ * @param lst The address of a pointer to an element.
+ * @param f The address of the function used to iterate on the list.
+ * @param del The address of the function used to delete the content of an
+ * element if needed.
+ * @return The new list. NULL if the allocation fails.
+ */
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+
 #endif
